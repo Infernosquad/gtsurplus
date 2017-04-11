@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping
+        xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity repository-class="AppBundle\Repository\AsinChildRepository"
+            name="AppBundle\Entity\AsinChild">
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO"/>
+        </id>
+        <field name="sellerName" type="string" column="sellerName"
+               length="255"/>
+        <field name="livePrice" type="float" column="livePrice"/>
+
+        <many-to-one field="asin" target-entity="AppBundle\Entity\Asin" inversed-by="children">
+            <join-column name="ParentId" referenced-column-name="id"/>
+        </many-to-one>
+    </entity>
+</doctrine-mapping>

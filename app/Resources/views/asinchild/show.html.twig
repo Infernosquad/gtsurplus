@@ -1,0 +1,36 @@
+{% extends '::layout.html.twig' %}
+
+{% block content %}
+    <h1>Asinchild</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Sellername</th>
+                <td>{{ asinChild.sellerName }}</td>
+            </tr>
+            <tr>
+                <th>Liveprice</th>
+                <td>{{ asinChild.livePrice }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ asinChild.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('asinchild_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('asinchild_edit', { 'id': asinChild.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

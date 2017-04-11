@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="asin_index" path="/" methods="GET">
+        <default key="_controller">AppBundle:Asin:index</default>
+    </route>
+
+    <route id="asin_show" path="/{id}/show" methods="GET">
+        <default key="_controller">AppBundle:Asin:show</default>
+    </route>
+
+    <route id="asin_new" path="/new" methods="GET|POST">
+        <default key="_controller">AppBundle:Asin:new</default>
+    </route>
+
+    <route id="asin_edit" path="/{id}/edit" methods="GET|POST">
+        <default key="_controller">AppBundle:Asin:edit</default>
+    </route>
+
+    <route id="asin_delete" path="/{id}/delete" methods="DELETE">
+        <default key="_controller">AppBundle:Asin:delete</default>
+    </route>
+
+</routes>

@@ -1,0 +1,43 @@
+{% extends '::layout.html.twig' %}
+
+{% block content %}
+    <h1>Asins list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Asin</th>
+                <th>Title</th>
+                <th>Map</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for asin in asins %}
+            <tr>
+                <td><a href="{{ path('asin_show', { 'id': asin.id }) }}">{{ asin.asin }}</a></td>
+                <td>{{ asin.title }}</td>
+                <td>{{ asin.map }}</td>
+                <td>{{ asin.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('asin_show', { 'id': asin.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('asin_edit', { 'id': asin.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('asin_new') }}">Create a new asin</a>
+        </li>
+    </ul>
+{% endblock %}

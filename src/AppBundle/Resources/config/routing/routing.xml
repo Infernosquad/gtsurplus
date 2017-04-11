@@ -7,4 +7,7 @@
     <route id="app_homepage_index" path="/">
         <default key="_controller">AppBundle:Homepage:index</default>
     </route>
+
+    <import resource="@AppBundle/Resources/config/routing/asin.xml" prefix="asin" />
+    <import resource="@AppBundle/Resources/config/routing/asinchild.xml" prefix="asinchild" />
 </routes>

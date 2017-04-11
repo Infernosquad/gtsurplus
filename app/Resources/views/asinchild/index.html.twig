@@ -1,0 +1,41 @@
+{% extends '::layout.html.twig' %}
+
+{% block content %}
+    <h1>Asinchildren list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Sellername</th>
+                <th>Liveprice</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for asinChild in asinChildren %}
+            <tr>
+                <td><a href="{{ path('asinchild_show', { 'id': asinChild.id }) }}">{{ asinChild.sellerName }}</a></td>
+                <td>{{ asinChild.livePrice }}</td>
+                <td>{{ asinChild.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('asinchild_show', { 'id': asinChild.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('asinchild_edit', { 'id': asinChild.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('asinchild_new') }}">Create a new asinChild</a>
+        </li>
+    </ul>
+{% endblock %}
